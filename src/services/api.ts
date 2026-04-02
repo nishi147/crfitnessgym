@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'https://cr-fitness-elevate-main.vercel.app/api';
+const API_URL = 'https://crfitnessgym.vercel.app/api';
 
 const api = axios.create({
   baseURL: API_URL,
