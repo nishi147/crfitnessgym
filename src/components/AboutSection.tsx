@@ -1,8 +1,28 @@
+import { useCallback } from "react";
 import { motion } from "framer-motion";
 import SectionWrapper from "./SectionWrapper";
-import gymInterior from "@/assets/gym-interior.jpg";
+import useEmblaCarousel from "embla-carousel-react";
+import { ChevronRight } from "lucide-react";
+
+import studioPhoto from "@/assets/gallery-studio-2.jpg";
+import gymFloorPhoto from "@/assets/gallery-gym-floor.jpg";
+import billiardsPhoto from "@/assets/gallery-billiards.jpg";
+import receptionPhoto from "@/assets/gallery-reception.jpg";
+
+const galleryImages = [
+  { src: receptionPhoto, alt: "Reception Area" },
+  { src: studioPhoto, alt: "Yoga Studio" },
+  { src: gymFloorPhoto, alt: "Gym Floor" },
+  { src: billiardsPhoto, alt: "Billiards Area" },
+];
 
 const AboutSection = () => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, skipSnaps: false });
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
+
   return (
     <SectionWrapper id="about" className="bg-gradient-dark-reverse">
       <div className="container mx-auto">
@@ -33,15 +53,33 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7 }}
-            className="relative mt-4 lg:mt-0"
+            className="relative mt-4 lg:mt-0 group"
           >
-            <img
-              src={gymInterior}
-              alt="CR Fitness interior"
-              className="rounded-lg w-full object-cover aspect-square"
-              loading="lazy"
-            />
-            <div className="absolute inset-0 rounded-lg border border-primary/20" />
+            <div className="overflow-hidden rounded-lg" ref={emblaRef}>
+              <div className="flex">
+                {galleryImages.map((image, index) => (
+                  <div key={index} className="flex-[0_0_100%] min-w-0">
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full object-cover aspect-square"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Manual Next Button - Visible in right > only */}
+            <button
+              onClick={scrollNext}
+              className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/50 border border-white/10 flex items-center justify-center text-white backdrop-blur-sm z-10 hover:bg-primary transition-colors focus:outline-none"
+              aria-label="Next image"
+            >
+              <ChevronRight className="w-8 h-8" />
+            </button>
+
+            <div className="absolute inset-0 rounded-lg border border-primary/20 pointer-events-none" />
             <div className="absolute -bottom-4 -right-4 w-full h-full rounded-lg border border-primary/10 -z-10" />
           </motion.div>
         </div>
@@ -51,3 +89,4 @@ const AboutSection = () => {
 };
 
 export default AboutSection;
+

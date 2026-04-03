@@ -6,20 +6,20 @@ const classes = [
   {
     name: "Yoga",
     desc: "Improve flexibility, balance, and inner peace.",
-    morning: "6:00 AM – 7:00 AM",
-    evening: "6:00 PM – 7:00 PM",
+    morning: "9:30 AM – 10:30 AM",
+    evening: "5:00 PM – 6:00 PM",
   },
   {
     name: "Zumba",
     desc: "Dance your way to fitness with high-energy moves.",
-    morning: "7:00 AM – 8:00 AM",
-    evening: "7:00 PM – 8:00 PM",
+    morning: "9:30 AM – 10:30 AM",
+    evening: "5:00 PM – 6:00 PM",
   },
   {
     name: "Aerobics",
     desc: "Boost stamina and burn calories with rhythmic exercises.",
-    morning: "8:00 AM – 9:00 AM",
-    evening: "8:00 PM – 9:00 PM",
+    morning: "9:30 AM – 10:30 AM",
+    evening: "5:00 PM – 6:00 PM",
   },
 ];
 
