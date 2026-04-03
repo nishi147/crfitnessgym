@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import GymTimingBanner from "@/components/GymTimingBanner";
 
 import AboutSection from "@/components/AboutSection";
+import VideoTourSection from "@/components/VideoTourSection";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import ProgramsSection from "@/components/ProgramsSection";
 import FreeTrialBanner from "@/components/FreeTrialBanner";
@@ -29,6 +30,7 @@ const Index = () => {
       <GymTimingBanner />
 
       <AboutSection />
+      <VideoTourSection />
       <WhyChooseUs />
       <ProgramsSection />
       <FreeTrialBanner />
